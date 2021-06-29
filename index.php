@@ -5,7 +5,7 @@ $db = new Database($db_user, $db_pass);
 // var_dump($db);
 // $db = new Database();
 // $db->insert_admin();
-// $db->insert_user();
+ // $db->insert_user();
 // $db->create_admin("admin", "admin", "admin@example.org");
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {

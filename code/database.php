@@ -5,7 +5,7 @@ class database {
 	private $dbh;
 	public function __construct(){
 		try {
-			$dsn = "mysql:host=localhost;dbname=Examenvoorbereiding;charset=utf8";
+			$dsn = "mysql:host=localhost;dbname=examenvoorbereidingjari_f;charset=utf8";
 			$this->dbh = new PDO($dsn, 'root', '');
 			// echo "Database connectie gemaakt ";
 		} catch (\PDOException $exception){
@@ -32,15 +32,16 @@ class database {
 
 	public function insert_user(){
 
-	$hashed_password = password_hash('user2', PASSWORD_DEFAULT);
-	$sql = "INSERT INTO users VALUES 
-	(NULL, :type_id, :email, :username, :password, :created_at, :updated_at)";
+	$hashed_password = password_hash('piet', PASSWORD_DEFAULT);
+	$sql = "INSERT INTO gebruiker VALUES 
+	(NULL, :voornaam, :achternaam, :email, :wachtwoord, :is_admin, :created_at, :updated_at)";
 	$statement = $this->dbh->prepare($sql);
 	$statement->execute([
-		'type_id' => '2',
-		'email' => 'user2@hotmail.com',
-		'username' => 'user2',
-		'password' => $hashed_password,
+		'voornaam' => 'piet',
+		'achternaam' => 'klaasen',
+		'email' => 'klaasen@hotmail.com',
+		'wachtwoord' => $hashed_password,
+		'is_admin' => false,
 		'created_at' => date('Y-m-d H:i:s'),
 		'updated_at' => date('Y-m-d H:i:s')
 		]);
@@ -111,35 +112,38 @@ class database {
 		$stmt->execute($id);
 	}
 
-	public function login($username, $password){
-		$sql = "SELECT id, type_id, username, password FROM users WHERE username = :username";
+	public function login($email, $wachtwoord){
+		$sql = "SELECT id, voornaam, achternaam, is_admin, email, wachtwoord FROM gebruiker WHERE email = :email";
 
         $stmt = $this->dbh->prepare($sql);
 
-        $stmt->execute(['username'=>$username]);
+        $stmt->execute(['email'=>$email]);
      
         $result = $stmt->fetch();
         // var_dump($result);
 
-               $hashed_password = $result['password'];
+               $hashed_password = $result['wachtwoord'];
                 // var_dump( password_verify($password, $hashed_password));
                
-        if ($username && password_verify($password, $hashed_password)) {
+        if ($email && password_verify($wachtwoord, $hashed_password)) {
 
                     session_start();
                     // userdate opslaan in session variables
                     $_SESSION['id'] = $result['id'];
-                    $_SESSION['username'] = $username;
-                    $_SESSION['type_id'] = $result['type_id']; 
+                    $_SESSION['voornaam'] = $result['voornaam'];
+                    $_SESSION['achternaam'] = $result['achternaam']; 
+                    $_SESSION['email'] = $result['email']; 
                     $_SESSION['loggedin'] = true;
+                    $_SESSION['is_admin'] = $result['is_admin'];
+
                     echo 'Login succesfull';
 
 
-                    if ( $_SESSION['type_id'] == 1) {
+                    if ( $_SESSION['is_admin'] == 1) {
                     	 header("refresh:3;url=code/welcome_admin.php");
                     	 exit;
                     }else{
-                    	header("refresh:3;url=code/welcome_user.php"); 
+                    	header("refresh:3;url=index.php"); 
                     exit;
                     }
                     
