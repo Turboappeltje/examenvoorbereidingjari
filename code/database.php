@@ -32,14 +32,14 @@ class database {
 
 	public function insert_user(){
 
-	$hashed_password = password_hash('piet', PASSWORD_DEFAULT);
+	$hashed_password = password_hash('123', PASSWORD_DEFAULT);
 	$sql = "INSERT INTO gebruiker VALUES 
 	(NULL, :voornaam, :achternaam, :email, :wachtwoord, :is_admin, :created_at, :updated_at)";
 	$statement = $this->dbh->prepare($sql);
 	$statement->execute([
-		'voornaam' => 'piet',
-		'achternaam' => 'klaasen',
-		'email' => 'klaasen@hotmail.com',
+		'voornaam' => 'jan',
+		'achternaam' => 'veenstra',
+		'email' => 'jan@hotmail.com',
 		'wachtwoord' => $hashed_password,
 		'is_admin' => false,
 		'created_at' => date('Y-m-d H:i:s'),
