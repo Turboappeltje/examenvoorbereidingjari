@@ -1,5 +1,5 @@
 <?php 
-include 'database.php';
+include_once 'database.php';
 include '../views/header.php';
 session_start();
 
@@ -34,17 +34,14 @@ $users = $db->select("SELECT id, voornaam, achternaam, email, is_admin, created_
 
 
  ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Welcome</title>
-</head>
-<body>
-        <table class="table">
+<body> 
+    <div class="container">
+        <table class="table table-dark">
+        
             <tr>
                 <?php
                     foreach($columns as $column)
-                    {echo "<th><strong>$column</strong></th>";}
+                    {echo "<th>$column</th>";}
                 ?>
 
             <th>action</th>
@@ -65,8 +62,8 @@ $users = $db->select("SELECT id, voornaam, achternaam, email, is_admin, created_
                     } 
                 ?>
 
-    </table>
-
+        </table>
+    </div>
 	<a href="logout.php">Logout</a>
 </body>
 </html>

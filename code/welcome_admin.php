@@ -16,27 +16,29 @@ if(isset($_SESSION['email']) && $_SESSION['email'] == true){
     exit;
     }
 }
+?>
 
- ?>
-<!-- <!DOCTYPE html>
-<html>
-<head>
-	<title>Welcome</title>
-</head>
-<body>
-  
-</body>
-</html> -->
+<!-- <form action="/action_page.php">
+  <label for="text"></label><br>
+  <input type="text" id="text" name="text" value=""><br>
+  <input type="submit" value="Submit">
+</form>  -->
 
-<!-- <br>
-    <a href="signup_admin.php">voeg admin toe</a><br>
-    <a href="signup.php">voeg user toe</a><br>
-    <a href="users.php">user overzicht</a><br>
-    <a href="./code/logout.php">Logout</a> -->
+<!-- <form action="action_page.php" method="post">
+	Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+  	<br><br>
+ Text <input type="text" name="text"><br>
+<input type="submit">
+</form> -->
 
-<!--   <ul>
-  <li><a href="signup_admin.php">voeg admin toe</a></li>
-  <li><a href="signup.php">voeg user toe</a></li>
-  <li><a href="users.php">user overzicht</a></li>
-  <li><a href="./code/logout.php">Logout</a></li>
-</ul> -->
+<div class="container">
+  <form action="action_page.php" method="post">
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+

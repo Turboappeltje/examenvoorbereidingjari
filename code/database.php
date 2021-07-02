@@ -1,6 +1,6 @@
 <?php
 
-class database {
+ class database {
 	
 	private $dbh;
 	public function __construct(){

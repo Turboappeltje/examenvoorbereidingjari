@@ -1,34 +1,35 @@
 <?php  
-include_once '../code/database.php';
+include_once 'C:\xampp\htdocs\examenvoorbereidingjari_f\code\database.php';
 $db = new Database();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome</title>
-	 <link rel="stylesheet" type="text/css" href="/examenvoorbereidingjari_f/css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/examenvoorbereidingjari_f/css/main.css">
 </head>
+
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link" href="/examenvoorbereidingjari_f/code/gebruikers.php" tabindex="-1" aria-disabled="true">Gebruikers overzicht</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/examenvoorbereidingjari_f/code/logout.php" tabindex="-1" aria-disabled="true">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/examenvoorbereidingjari_f/code/welcome_admin.php">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/examenvoorbereidingjari_f/code/gebruikers.php">Gebruikersoverzicht</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/examenvoorbereidingjari_f/code/logout.php">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </nav>
 
